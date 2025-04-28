@@ -36,7 +36,7 @@ export default defineConfig({
         items: [
           { text: "反馈 Alert", link: "/components/alert" },
           { text: "消息提示 Message", link: "/components/message" },
-          { text: "消息弹出框 MessageBox", link: "/components/messageBox" },
+          { text: "消息弹出框 MessageBox", link: "/components/messagebox" },
         ],
       },
       {
