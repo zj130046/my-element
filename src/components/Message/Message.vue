@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 
-import { ref, onMounted, watch, computed, nextTick } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import type { MessageProps } from './types'
 import RenderVnode from '../Common/RenderVnode'
 import Icon from '../Icon/Icon.vue'

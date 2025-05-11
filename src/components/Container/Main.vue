@@ -9,6 +9,3 @@ defineOptions({
   name: 'ElMain',
 })
 </script>
-<style>
-
-</style>

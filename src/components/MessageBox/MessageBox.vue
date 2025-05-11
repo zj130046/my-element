@@ -3,41 +3,27 @@
     <!-- 过渡动画 -->
     <Transition name="messagebox-fade">
       <!-- 遮罩层：visible控制其显示和隐藏 -->
-      <div 
-        class="el-message-box"
-        v-show="state.visible"
-        @click.self="handleClickModal"
-      > 
+      <div class="el-message-box" v-show="state.visible" @click.self="handleClickModal">
         <!-- MessageBox区域：居中显示在页面中 -->
         <div class="el-message-box-wrapper">
           <!-- 顶部title区域 -->
           <div class="el-message-box-title">
             <!-- title标题，props传递而来 -->
-            <h1>{{  title }}</h1>
+            <h1>{{ title }}</h1>
             <!-- 关闭弹窗图标 -->
-            <span
-              class="el-message-box-close"
-              @click="handleAction('close')"
-            >
+            <span class="el-message-box-close" @click="handleAction('close')">
               <el-icon icon="xmark"></el-icon>
             </span>
           </div>
-          <!-- content 内容区域：props传递而来 -->
           <div class="el-message-box-content">
-            <p>{{  content }}</p>
+            <p>{{ content }}</p>
           </div>
-          <!-- 底部按钮区域：有确认和取消按钮 -->
           <div class="el-message-box-btns">
             <!-- 确认按钮 -->
-            <el-button 
-              @click="handleAction('confirm')"
-            >{{  confirmBtnText }}</el-button>
+            <el-button @click="handleAction('confirm')">{{ confirmBtnText }}</el-button>
             <!-- 取消按钮 -->
-            <el-button 
-              type="danger" 
-              v-if="showCancelBtn" 
-              @click="handleAction('cancel')"
-            >{{  cancelBtnText }}</el-button>
+            <el-button type="danger" v-if="showCancelBtn" @click="handleAction('cancel')">{{ cancelBtnText
+              }}</el-button>
           </div>
         </div>
       </div>
@@ -64,7 +50,6 @@ defineOptions({
   name: 'ElMessageBox'
 });
 
-// 从外部传递的 props
 const props = defineProps<MessageBoxOptions>();
 
 // 点击遮罩层：关闭 Messagebox 框

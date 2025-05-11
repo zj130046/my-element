@@ -1,4 +1,4 @@
-import { defineConfig } from "vitepress";
+import { defineConfig } from "vitepress"; //定义 VitePress 项目的配置对象
 import {
   containerPreview,
   componentPreview,
@@ -17,7 +17,7 @@ export default defineConfig({
   },
   themeConfig: {
     nav: [
-      { text: "指南", link: "/" }, //它们不是路由本身，而是通过 硬编码链接 指向已存在的路由路径
+      { text: "指南", link: "/" },
       { text: "组件", link: "/components/button" },
     ],
     sidebar: [

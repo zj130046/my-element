@@ -2,11 +2,6 @@ import MessageBoxComponent from "./MessageBox.vue";
 import { createApp, watch } from "vue";
 import { MessageBoxOptions } from "./types";
 
-/**
- * MessageBox - 创建MessageBox
- * @param {MessageBoxOptions} options - 弹窗的配置选项
- * @returns {Promise<void>} - 返回一个 Promise 对象，表示弹窗的结果
- */
 const MessageBox = (options: MessageBoxOptions): Promise<void> => {
   // 创建一个 Vue 应用实例，将弹窗组件和配置选项传入
   const messageBoxApp = createApp(MessageBoxComponent, options);
@@ -17,11 +12,6 @@ const MessageBox = (options: MessageBoxOptions): Promise<void> => {
   });
 };
 
-/**
- * MessageBox 的 confirm 静态方法 - 创建带有确认按钮的弹窗
- * @param {MessageBoxOptions} options - 弹窗的配置选项
- * @returns {Promise<void>} - 返回一个 Promise 对象，表示弹窗的结果
- */
 MessageBox["confirm"] = (options: MessageBoxOptions): Promise<void> => {
   // 设置额外字段，标识弹窗类型为确认对话框
   options.field = "confirm";
@@ -29,23 +19,6 @@ MessageBox["confirm"] = (options: MessageBoxOptions): Promise<void> => {
   return MessageBox(options);
 };
 
-/**
- * MessageBox 的 alert 静态方法 - 创建带有警告按钮的弹窗
- * @param {MessageBoxOptions} options - 弹窗的配置选项
- * @returns {Promise<void>} - 返回一个 Promise 对象，表示弹窗的结果
- */
-MessageBox["alert"] = (options: MessageBoxOptions): Promise<void> => {
-  // 设置额外字段，标识弹窗类型为警告框
-  options.field = "alert";
-  // 调用 MessageBox 函数创建并返回 Promise
-  return MessageBox(options);
-};
-
-/**
- * 显示弹窗的函数
- * @param {object} app - Vue 应用实例
- * @param {object} callbacks - 包含 resolve 和 reject 回调的对象
- */
 const showMessageBox = (
   app: any,
   { resolve, reject }: { resolve: () => void; reject: () => void }
@@ -79,14 +52,9 @@ const showMessageBox = (
   });
 };
 
-/**
- * 隐藏并销毁弹窗的函数
- * @param {object} app - Vue 应用实例
- */
 const hideMessageBox = (app: any): void => {
   // 使用 Vue 的 unmount 方法卸载组件
   app.unmount();
 };
 
-// 导出 MessageBox 函数
 export default MessageBox;

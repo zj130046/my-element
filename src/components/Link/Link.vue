@@ -1,12 +1,7 @@
 <template>
   <!-- 如果是禁用状态，则href和target失效，否则传递正确的href和target -->
-  <a
-    class="el-link"
-    :class="linkClass"
-    :href="disabled || !href ? '' : href"
-    :target="disabled || !href ? undefined : target"
-    @click="handleClick"
-  >
+  <a class="el-link" :class="linkClass" :href="disabled || !href ? '' : href"
+    :target="disabled || !href ? undefined : target">
     <el-icon v-if="icon" :icon="icon"></el-icon>
     <span class="el-link__inner">
       <slot>Link</slot>
@@ -16,7 +11,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { LinkProps, linkEmits } from './types'
+import { LinkProps } from './types'
 import ElIcon from '../Icon/Icon.vue'
 
 // 设置组件选项
@@ -32,9 +27,6 @@ const props = withDefaults(defineProps<LinkProps>(), {
   target: '_self'
 })
 
-// 声明组件发射的事件
-const emits = defineEmits(linkEmits)
-
 // 计算Link的类名
 const linkClass = computed(() => {
   const { type, underline, disabled } = props
@@ -47,10 +39,4 @@ const linkClass = computed(() => {
   ]
 })
 
-// 处理点击事件
-const handleClick = (event: MouseEvent) => {
-  if (!props.disabled) {
-    emits('click', event)
-  }
-}
 </script>

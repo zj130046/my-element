@@ -7,6 +7,7 @@
         <!-- 是否显示图标 -->
         <span v-if="showIcon">
           <!-- 图标组件 -->
+          <!-- 既执行关闭操作，又防止事件冒泡 -->
           <el-icon :icon="showAlertIcon()" @click.stop="visible = false"></el-icon>
         </span>
         <!-- Alert 标题和描述 -->
@@ -38,7 +39,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { AlertProps, alertEmits } from './types'
+import { AlertProps } from './types'
 import ElIcon from '../Icon/Icon.vue'
 
 // 设置组件名
@@ -51,9 +52,6 @@ const props = withDefaults(defineProps<AlertProps>(), {
   effect: 'light',
   closable: true
 })
-
-// 定义事件触发器
-const emit = defineEmits(alertEmits)
 
 // 计算 Alert 组件的样式类
 const elAlertClass = computed(() => {
@@ -70,20 +68,14 @@ const elAlertClass = computed(() => {
 // 控制 Alert 的显示状态
 const visible = ref(true)
 
-// 计算图标样式类
-// const iconClass = computed(() => {
-//   return {}
-// })
-
 // 关闭 Alert 弹窗
-const closeAlert = (evt: MouseEvent) => {
+const closeAlert = () => {
   visible.value = false
-  emit('close', evt)
 }
 
 // 根据警报类型返回相应的图标名称
 const showAlertIcon = () => {
-  switch(props.type) {
+  switch (props.type) {
     case 'error':
       return 'circle-xmark'
     case 'info':

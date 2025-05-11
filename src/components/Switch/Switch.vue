@@ -1,22 +1,12 @@
 <template>
   <!-- 开关容器 -->
-  <div 
-    class="el-switch" 
-    @click="toggleSwitch" 
-    :class="{ 'is-checked': switchOn, 'is-disabled': disabled, [`el-switch--${size}`]: size }"
-    >
-    <input 
-    ref="inputInstance"
-    class="el-switch__input"
-    type="checkbox"
-    role="switch"
-    :name="name"
-    :disabled="disabled"
-    @keydown.enter="toggleSwitch"
-    />
+  <div class="el-switch" @click="toggleSwitch"
+    :class="{ 'is-checked': switchOn, 'is-disabled': disabled, [`el-switch--${size}`]: size }">
+    <input ref="inputInstance" class="el-switch__input" type="checkbox" role="switch" :name="name" :disabled="disabled"
+      @keydown.enter="toggleSwitch" />
     <!-- activeText文字描述 -->
     <span class="el-switch__label el-switch__label--left" v-if="!inlinePrompt && inactiveText">
-      {{  inactiveText }}
+      {{ inactiveText }}
     </span>
     <!-- switch开关结构 -->
     <span class="el-switch__core" :style="switchStyle">
@@ -54,15 +44,13 @@ const props = withDefaults(defineProps<SwitchProps>(), {
   inactiveValue: false,
   inlinePrompt: false,
 })
-// Switch的选项值
-const switchValue = ref(props.modelValue)
+
 const emits = defineEmits<SwitchEmits>()
 
 // 计算开关是否处于开启状态，modelValue 是否等于 activeValue
 const switchOn = ref(props.modelValue === props.activeValue);
 // 监听 modelValue 的变化，同步更新组件的状态
 watch(() => props.modelValue, (newValue) => {
-  switchValue.value = newValue
   switchOn.value = newValue === props.activeValue;
 });
 
@@ -89,4 +77,3 @@ const switchStyle = computed(() => {
   }
 })
 </script>
-

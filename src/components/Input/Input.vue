@@ -91,6 +91,7 @@ const computedClass = computed(() => {
     [`el-input--${props.size}`]: props.size
   }
 })
+
 // 在input上绑定 modelValue
 const inputValue = ref(props.modelValue)
 // 处理输入事件，触发父组件的更新
@@ -165,6 +166,7 @@ const runValidation = (trigger: string) => {
     formItemContext?.validate?.(trigger).catch((err: unknown) => console.error(err))
   }
 }
+
 defineExpose({
   inputInstance
 })

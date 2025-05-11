@@ -6,7 +6,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { computed, useSlots} from 'vue'
+import { computed, useSlots } from 'vue'
 import type { Component, VNode } from 'vue'
 defineOptions({
   name: 'ElContainer'
@@ -20,12 +20,12 @@ const isVertical = computed(() => {
   // 如果props.direction等于'vertical'，返回true
   if (props.direction === 'vertical') {
     return true
-  } else if(props.direction === 'horizontal') {
+  } else if (props.direction === 'horizontal') {
     // 如果props.direction等于'horizontal'，返回false
     return false
   }
   // 如果插槽存在且有默认插槽内容
-  if(slots && slots.default) {
+  if (slots && slots.default) {
     // 使用slots.default获取默认插槽中的所有vNode节点
     const vNodes: VNode[] = slots.default()
     // 遍历 vNode节点数组，如果存在el-header/el-footer
@@ -39,11 +39,7 @@ const isVertical = computed(() => {
     return false
   }
 })
-/* 
-'horizontal' | 'vertical'
-子元素中有 el-header 或 el-footer 时为 vertical，否则为 horizontal
-根据是否包含 el-header 或 el-footer 子组件设置容器的方向
-*/
+
 const props = defineProps<ContainerProps>()
 const containerClass = computed(() => {
   return {
@@ -53,5 +49,4 @@ const containerClass = computed(() => {
   }
 })
 </script>
-<style>
-</style>
+<style></style>
