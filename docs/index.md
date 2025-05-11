@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "ElElement"
+  name: "Element"
   text: "Vue3组件库"
   tagline: 基于Vue3 + TypeScript的组件库
   actions:
@@ -17,7 +17,7 @@ features:
   - title: 技术栈
     details: Vue3 + TypeScript
   - title: 涵盖内容
-    details: 覆盖elmentui中常见的11组件
+    details: 覆盖elmentui中常见的10种组件
   - title: 持续优化
     details: 组件持续更新中
 ---

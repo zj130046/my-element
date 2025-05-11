@@ -28,7 +28,6 @@ export default defineConfig({
           { text: "布局容器 Container", link: "/components/container" },
           { text: "图标 Icon", link: "components/icon" },
           { text: "链接 Link", link: "/components/link" },
-          { text: "折叠面板 Collapse", link: "/components/collapse" },
         ],
       },
       {

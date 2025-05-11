@@ -17,13 +17,7 @@ interface ContainerProps {
 const slots = useSlots()
 // 判断布局方向是否是Vertical
 const isVertical = computed(() => {
-  // 如果props.direction等于'vertical'，返回true
-  if (props.direction === 'vertical') {
-    return true
-  } else if (props.direction === 'horizontal') {
-    // 如果props.direction等于'horizontal'，返回false
-    return false
-  }
+
   // 如果插槽存在且有默认插槽内容
   if (slots && slots.default) {
     // 使用slots.default获取默认插槽中的所有vNode节点

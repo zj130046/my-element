@@ -1,6 +1,5 @@
 <template lang="">
   <div>
-    
     <el-switch v-model="value1" activeText="on" inactiveText="off"></el-switch>
     <el-switch v-model="value2" activeText="on" inlinePrompt inactiveText="off"></el-switch>
   </div>

@@ -21,17 +21,7 @@ export interface SwitchProps {
 
 // 开关组件的事件
 export interface SwitchEmits {
-  /**
-   * 更新开关值的事件
-   * @param e 事件名称
-   * @param value 开关的新值
-   */
   (e: "update:modelValue", value: SwitchValueType): void;
 
-  /**
-   * 开关状态改变的事件
-   * @param e 事件名称
-   * @param value 改变后的开关值
-   */
   (e: "change", value: SwitchValueType): void; // change事件
 }

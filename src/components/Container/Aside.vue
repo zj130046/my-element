@@ -3,6 +3,7 @@
     <slot>Aside</slot>
   </aside>
 </template>
+
 <script lang="ts" setup>
 import { computed } from 'vue'
 import type { WidthProps } from './types'
